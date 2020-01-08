@@ -1,0 +1,3 @@
+rootProject.name = 'web3j-ribbon-demo'
+include 'core'
+

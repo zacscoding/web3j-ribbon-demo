@@ -1,0 +1,19 @@
+ext {
+    web3jVersion = '4.5.11'
+    ribbonVersion = '2.3.0'
+    guavaVersion = '28.2-jre'
+}
+
+dependencyManagement {
+    dependencies {
+        dependency "org.web3j:core:${web3jVersion}"
+
+        dependency "com.netflix.ribbon:ribbon:${ribbonVersion}"
+        dependency "com.netflix.ribbon:ribbon:${ribbonVersion}"
+        dependency "com.netflix.ribbon:ribbon-core:${ribbonVersion}"
+        dependency "com.netflix.ribbon:ribbon-httpclient:${ribbonVersion}"
+        dependency "com.netflix.ribbon:ribbon-loadbalancer:${ribbonVersion}"
+
+        dependency "com.google.guava:guava:${guavaVersion}"
+    }
+}

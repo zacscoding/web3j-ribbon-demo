@@ -1,0 +1,13 @@
+dependencies {
+    // web3j
+    implementation 'org.web3j:core'
+
+    // ribbon
+    implementation 'com.netflix.ribbon:ribbon'
+    implementation 'com.netflix.ribbon:ribbon-core'
+    implementation 'com.netflix.ribbon:ribbon-httpclient'
+    implementation 'com.netflix.ribbon:ribbon-loadbalancer'
+
+    // guava
+    implementation 'com.google.guava:guava'
+}
