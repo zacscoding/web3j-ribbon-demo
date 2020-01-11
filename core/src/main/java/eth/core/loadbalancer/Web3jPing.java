@@ -35,6 +35,16 @@ public class Web3jPing implements IPing {
 
     @Override
     public boolean isAlive(Server server) {
+        boolean alive = isAliveInternal(server);
+
+        if (logger.isTraceEnabled()) {
+            logger.trace("Ping {} result >> {}", server, alive);
+        }
+
+        return alive;
+    }
+
+    private boolean isAliveInternal(Server server) {
         if (!(server instanceof EthNode)) {
             throw new IllegalStateException("Cannot cast to Server to EthNode. server : "
                                             + (server == null ? null : server.getClass().getName()));
@@ -81,20 +91,26 @@ public class Web3jPing implements IPing {
         }
     }
 
+    /**
+     * Returns a {@link EthSyncing}'s result
+     *
+     * if use {@link WebSocketService} and not connected, then try to connect again
+     */
     private EthSyncing.Result getSyncingResult(EthNode ethNode) throws Exception {
         final Web3j web3j = Web3j.build(ethNode.getWeb3jService());
         try {
             return web3j.ethSyncing().send().getResult();
         } catch (WebsocketNotConnectedException e) {
+            // TODO : check exception
             final Web3jService web3jService = ethNode.getWeb3jService();
 
-            // throw exception if not web socket service
             if (web3jService instanceof WebSocketService) {
                 // if use websocket service, then try to reconnect
                 ((WebSocketService) web3jService).connect();
                 return web3j.ethSyncing().send().getResult();
             }
 
+            // throw exception if not web socket service
             throw e;
         } catch (Exception e) {
             throw e;

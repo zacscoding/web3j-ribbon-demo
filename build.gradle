@@ -40,6 +40,18 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok'
         compileOnly 'org.projectlombok:lombok'
 
+        // web3j
+        implementation 'org.web3j:core'
+
+        // ribbon
+        implementation 'com.netflix.ribbon:ribbon'
+        implementation 'com.netflix.ribbon:ribbon-core'
+        implementation 'com.netflix.ribbon:ribbon-httpclient'
+        implementation 'com.netflix.ribbon:ribbon-loadbalancer'
+
+        // guava
+        implementation 'com.google.guava:guava'
+
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }

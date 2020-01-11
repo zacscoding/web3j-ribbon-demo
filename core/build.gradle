@@ -1,13 +1,7 @@
-dependencies {
-    // web3j
-    implementation 'org.web3j:core'
+bootJar {
+    enabled = false
+}
 
-    // ribbon
-    implementation 'com.netflix.ribbon:ribbon'
-    implementation 'com.netflix.ribbon:ribbon-core'
-    implementation 'com.netflix.ribbon:ribbon-httpclient'
-    implementation 'com.netflix.ribbon:ribbon-loadbalancer'
-
-    // guava
-    implementation 'com.google.guava:guava'
+jar {
+    enabled = true
 }

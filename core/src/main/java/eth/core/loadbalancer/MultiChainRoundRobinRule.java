@@ -106,7 +106,7 @@ public class MultiChainRoundRobinRule extends AbstractLoadBalancerRule {
             }
 
             if (server.isAlive() && (server.isReadyToServe())) {
-                return (server);
+                return server;
             }
         }
 
